@@ -163,6 +163,87 @@ public class Dots extends View {
     }
 
     private boolean gameOver(){
+        for(int i=0;i<6;i++){
+            for(int j=0;j<6;j++){
+                if(adj[i][j]==1)
+                {
+                    for(int k=i;k<6;k++){
+                        for(int l=j+1;j<6;j++){
+                            if(adj[k][l]==1){
+                                for(int m=k;m<6;m++){
+                                    for(int n=l+1;n<6;n++){
+                                        if(adj[m][n]==1)
+                                            return true;
+                                    }
+                                }
+                                for(int m=k+1;m<6;m++){
+                                    for(int n=l;n<6;n++){
+                                        if(adj[m][n]==1)
+                                            return true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    for(int k=i+1;k<6;k++){
+                        for(int l=j;l<6;l++){
+                            if(adj[k][l]==1){
+                                for(int m=k;m<6;m++){
+                                    for(int n=l+1;n<6;n++){
+                                        if(adj[m][n]==1)
+                                            return true;
+                                    }
+                                }
+                                for(int m=k+1;m<6;m++){
+                                    for(int n=l;n<6;n++){
+                                        if(adj[m][n]==1)
+                                            return true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else if(adj[i][j]==2){
+                    for(int k=i;k<6;k++){
+                        for(int l=j+1;j<6;j++){
+                            if(adj[k][l]==2){
+                                for(int m=k;m<6;m++){
+                                    for(int n=l+1;n<6;n++){
+                                        if(adj[m][n]==2)
+                                            return true;
+                                    }
+                                }
+                                for(int m=k+1;m<6;m++){
+                                    for(int n=l;n<6;n++){
+                                        if(adj[m][n]==2)
+                                            return true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    for(int k=i+1;k<6;k++){
+                        for(int l=j;l<6;l++){
+                            if(adj[k][l]==2){
+                                for(int m=k;m<6;m++){
+                                    for(int n=l+1;n<6;n++){
+                                        if(adj[m][n]==2)
+                                            return true;
+                                    }
+                                }
+                                for(int m=k+1;m<6;m++){
+                                    for(int n=l;n<6;n++){
+                                        if(adj[m][n]==2)
+                                            return true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         return false;
     }
 };
