@@ -1,4 +1,4 @@
-package com.example.aditi.trialapp;
+package com.example.app.trialapp;
 
 import android.app.Activity;
 import android.content.Context;

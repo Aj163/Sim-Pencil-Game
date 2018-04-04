@@ -1,4 +1,4 @@
-package com.example.aditi.trialapp;
+package com.example.app.trialapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

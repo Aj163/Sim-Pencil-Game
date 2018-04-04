@@ -1,4 +1,4 @@
-package com.example.aditi.trialapp;
+package com.example.app.trialapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
