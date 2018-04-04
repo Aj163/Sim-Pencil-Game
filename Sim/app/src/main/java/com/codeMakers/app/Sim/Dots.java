@@ -1,4 +1,4 @@
-package com.example.app.trialapp;
+package com.codeMakers.app.Sim;
 
 import android.app.Activity;
 import android.content.Context;

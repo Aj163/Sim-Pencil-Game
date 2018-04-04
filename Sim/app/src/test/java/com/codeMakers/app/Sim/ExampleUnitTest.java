@@ -1,4 +1,4 @@
-package com.example.app.trialapp;
+package com.codeMakers.app.Sim;
 
 import org.junit.Test;
 

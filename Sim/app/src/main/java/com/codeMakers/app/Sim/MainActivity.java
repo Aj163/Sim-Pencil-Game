@@ -1,4 +1,4 @@
-package com.example.app.trialapp;
+package com.codeMakers.app.Sim;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
