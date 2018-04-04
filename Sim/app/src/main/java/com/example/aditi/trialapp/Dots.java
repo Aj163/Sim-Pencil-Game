@@ -19,7 +19,8 @@ public class Dots extends View {
 
     private int X[] = {0, 0, 0, 0, 0, 0};
     private int Y[] = {0, 0, 0, 0, 0, 0};
-    private int radius = 30, turn, pointTurn;
+    private int degree[] = {0, 0, 0, 0, 0, 0};
+    private int radius = 35, turn, pointTurn, gameDone;
 
     Paint pointPaint[] = {new Paint(), new Paint(), new Paint(),
             new Paint(), new Paint(), new Paint()};
@@ -42,6 +43,7 @@ public class Dots extends View {
 
         turn = 0; //Player 1
         pointTurn = 0; //Player has selected 0 points
+        gameDone = 0;
     }
 
     @Override
@@ -83,10 +85,16 @@ public class Dots extends View {
         for(int i=0; i<6; i++)
             canvas.drawCircle(X[i], Y[i], radius, pointPaint[i]);
 
+        if(gameOver()){
+            gameDone = 1;
+        }
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if(gameDone == 1)
+            return super.onTouchEvent(event);
+
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 Point p = new Point((int) event.getX(), (int)event.getY());
@@ -94,11 +102,15 @@ public class Dots extends View {
                 for(int i=0; i<6; i++)
                     if(Math.abs(p.x - X[i]) <= radius && Math.abs(p.y - Y[i]) <= radius) {
                         if (pointTurn == 0 && turn == 0) {
+                            if(degree[i] == 5)
+                                return super.onTouchEvent(event);
                             pointPaint[i].setColor(Color.RED);
                             pointTurn = 1;
                             break;
                         }
                         else if (pointTurn == 0 && turn == 1) {
+                            if(degree[i] == 5)
+                                return super.onTouchEvent(event);
                             pointPaint[i].setColor(Color.GREEN);
                             pointTurn = 1;
                             break;
@@ -112,9 +124,11 @@ public class Dots extends View {
                                     break;
                                 }
 
-                            if(pos == i)
+                            if(pos == i || adj[i][pos] != 0)
                                 return super.onTouchEvent(event);
                             adj[pos][i] = adj[i][pos] = 1;
+                            degree[i]++;
+                            degree[pos]++;
 
                             //Reset
                             pointTurn = 0;
@@ -130,9 +144,11 @@ public class Dots extends View {
                                     break;
                                 }
 
-                            if(pos == i)
+                            if(pos == i || adj[i][pos] != 0)
                                 return super.onTouchEvent(event);
                             adj[pos][i] = adj[i][pos] = 2;
+                            degree[i]++;
+                            degree[pos]++;
 
                             //Reset
                             pointTurn = 0;
@@ -144,5 +160,9 @@ public class Dots extends View {
                 invalidate();
         }
         return super.onTouchEvent(event);
+    }
+
+    private boolean gameOver(){
+        return false;
     }
 };
