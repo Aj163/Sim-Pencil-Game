@@ -146,7 +146,7 @@ public class Dots extends View {
             canvas.drawCircle(radius+200, radius+30, radius, player);
 
             player.setColor(Color.BLACK);
-            canvas.drawText("Wins !!!", 2*radius+220, radius+40, player);
+            canvas.drawText("Wins", 2*radius+220, radius+40, player);
 
 
             //Play Again
@@ -188,7 +188,6 @@ public class Dots extends View {
                             break;
                         }
                         else if (pointTurn == 1 && turn == 0) {
-                            Log.d("HI", "HELLO");
                             int pos = -1;
                             for(int j=0; j<6; j++)
                                 if(pointPaint[j].getColor() == Color.RED){
